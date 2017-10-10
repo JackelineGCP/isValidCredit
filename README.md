@@ -36,6 +36,8 @@ PSEUDOÓDIGO |
 isValidCard;
 isValidCard
 
+|Diagrama de Flujo|
 
-![Con titulo](pictures/isValidCard1.jpg "DiagramaDeFlujo")
-![Con titulo](pictures/isValidCard2.jpg "DiagramaDeFlujo")
+[Con titulo](http://subefotos.com/ver/?43e9458512a39f7d5623698fde807f6bo.jpg "Diagrama de Flujo_1")
+
+[Con titulo](http://subefotos.com/ver/?95095ec13c2a4a170c46d8740fc50ed2o.jpg "Diagrama d Flujo_2")
