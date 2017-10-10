@@ -1,5 +1,5 @@
 <h1> **My New App isValidCard**
-<h4> Este es el README de mi nueva aplicación isValidCard
+<h4> Este es el README de mi nueva aplicación isValidCard programado en editor Atom
 
 > Creamos una función llamada _isValidCard_ la cual va a ser invocada para validar el númeo de la tarjeta de credito ingresada por el usuario mediante un _prompt_.
 >> Para lo cual utilizamos el _Algorítmo de Luhn_ o también conocido como _Algorítmo de módulo 10_.
@@ -33,8 +33,8 @@ PSEUDOÓDIGO |
    }
    return  (numSum % 10 === 0 ? 'Tarjeta de Crédito Válida' : 'Tarjeta de Crédito no Válida');
 }
-isValidCard;
-isValidCard
+isValidCard();
+
 
 |Diagrama de Flujo|
 
