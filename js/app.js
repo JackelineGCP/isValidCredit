@@ -1,31 +1,40 @@
-
-//1.Crear función isValidCard
-
-function isValidCard(sixteenDigitString) {
-    var creditNumber = parseInt(prompt('ingrese número de su tarjeta de crédito'));
-  //  for(i = 0; i <= creditNumber.length; i++)
-    var reverse = 0; //Donde se va a guardar los números invertidos
-    var resto = sixteenDigitString; //Número de la tarjeta
-    do {
-       reverse = reverse * 10 + (resto % 10);
-       resto = Math.floor(resto / 10);
-      } while ( resto > 0 )
-
-    var numSum = 0; //numSum es la sumatoria de todos los números una vez apliacado las operaciones
-    var value = 0; //value son el resultado de las operaciones que se les ha aplicado a los números (par, impar)
-     for (var i = 1; i <= 16; i++) {
-        if  (i % 2 === 0) {
-            value = 2 * reverse[i];
-            if (value >= 10) {
-                value = (Math.floor(value / 10) + value % 10);
-            }
-        } else {
-            value += reverse[i];
-        }
-        numSum += value;
+//Solicitando al usuario su número de tarjeta de crédito
+ 
+do {
+    var inputCodeCard = prompt ('Ingrese su número de tarjeta de crédito \nNota: Recuerde que no puede ingresar espacios vacíos, letras o más de 16 dígitos');   
+  }while (!inputCodeCard || isNaN(inputCodeCard) || (inputCodeCard.length !== 16));
+    
+  //Creando función para validar tarjeta
+  function isValidCard (inputCodeCard){
+    var arrReverse = []; //Creando un array donde se almacenarán los números de la tarjeta en orden inverso
+    for (var i = 0; i < inputCodeCard.length; i++){
+      arrReverse.unshift(parseInt(inputCodeCard[i]));
+  }
+  
+  //Obteniendo números en posición par
+    for (var j = 1; j <arrReverse.length; j = j+2){
+      if (arrReverse[j]*2 >= 10){
+        var numberByTwo = arrReverse[j]*2;
+        //Si el valor de la multiplicación es de dos dígitos: sumar digitos y luego reemplzar en arrReverse
+        arrReverse[j] = parseInt(numberByTwo.toString(10)[0]) + parseInt(numberByTwo.toString(10)[1]);
+      }else{
+      //Si el valor de la multiplicación es de un dígito, se reemplaza en arrReverse
+        arrReverse[j] = arrReverse[j]*2;
+      }
+  //Sumando los digitos de la tarjeta
+      var sum = 0;
+      for (var k = 0; k < arrReverse.length; k++){
+        sum = sum + arrReverse[k];
+      }
     }
-        return  (numSum % 10 === 0 ? 'Tarjeta de Crédito Válida' : 'Tarjeta de Crédito no Válida');
-}
-isValidCard;
-
-console.log(isValidCard(564324567892345));
+    
+  //Validando tarjeta
+    if (sum % 10 === 0) {
+      return alert ("Tu número de tarjeta es VÁLIDA");
+    }else{
+      return alert ("Tu número de tarjeta es INVÁLIDA");
+    }
+  }
+    
+  //Llamando a la función
+  isValidCard (inputCodeCard);
